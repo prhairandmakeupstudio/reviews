@@ -140,6 +140,13 @@
     <p id="responseMessage" class="response-message">Thank you for your review!</p>
     
     <button class="button" id="submitBtn">Submit Review</button>
+
+    <!-- Instructions for opening in Chrome if not default browser -->
+    <p id="chromeInstructions" style="display:none; color: #fff; margin-top: 20px; font-size: 14px; font-style: italic;">
+      If the review page does not open in Chrome, please manually copy and paste this URL into your Chrome browser: 
+      <br>
+      <a href="https://g.page/r/CSEDTwJF5uMuEBM/review" target="_blank" class="link">https://g.page/r/CSEDTwJF5uMuEBM/review</a>
+    </p>
   </div>
 
   <script>
@@ -172,11 +179,14 @@
   
       // Display message for non-5-star ratings
       const responseMessage = document.getElementById('responseMessage');
+      const chromeInstructions = document.getElementById('chromeInstructions');
       if (rating < 5) {
         responseMessage.style.display = 'block';
         responseMessage.textContent = 'Thank you for your review!';
+        chromeInstructions.style.display = 'block';
       } else {
         responseMessage.style.display = 'none';
+        chromeInstructions.style.display = 'none';
       }
     }
   </script>
@@ -184,3 +194,4 @@
 
 </body>
 </html>
+
