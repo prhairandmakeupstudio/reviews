@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PR Hair and Makeup Studio - 5-Star Review</title>
+  <style>
+    /* General Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Lora', serif;
+      background: linear-gradient(135deg, #2c1b30, #140d21); /* Deep purple to black gradient */
+      color: #f4f4f4;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .container {
+      background: #1f0a2a; /* Dark purple */
+      padding: 40px;
+      border-radius: 15px;
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+      max-width: 450px;
+      width: 100%;
+      text-align: center;
+      transition: all 0.3s ease-in-out;
+    }
+
+    h1 {
+      color: #D4AF37; /* Golden color */
+      font-size: 32px;
+      margin-bottom: 20px;
+      letter-spacing: 2px;
+      font-weight: bold;
+      text-transform: uppercase;
+    }
+
+    .star-rating {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      margin-bottom: 25px;
+    }
+
+    .star {
+      font-size: 50px;
+      color: #6c4f99; /* Purple */
+      cursor: pointer;
+      transition: color 0.3s ease;
+    }
+
+    .star.selected {
+      color: #D4AF37; /* Golden color for selected stars */
+    }
+
+    .button {
+      padding: 12px 25px;
+      background-color: #D4AF37; /* Gold */
+      color: #1f0a2a;
+      border: none;
+      border-radius: 30px;
+      cursor: pointer;
+      font-size: 18px;
+      margin-top: 20px;
+      text-transform: uppercase;
+      font-weight: bold;
+      transition: background-color 0.3s ease;
+    }
+
+    .button:hover {
+      background-color: #b89228; /* Darker gold for hover */
+    }
+
+    .response-message {
+      margin-top: 20px;
+      font-size: 16px;
+      color: #4CAF50; /* Green message text */
+      font-style: italic;
+      display: none;
+    }
+
+    .link {
+      text-decoration: none;
+      color: #ffffff;
+      background-color: #4CAF50;
+      padding: 12px;
+      border-radius: 5px;
+      font-weight: 500;
+      margin-top: 10px;
+      display: inline-block;
+      transition: background-color 0.3s ease;
+    }
+
+    .link:hover {
+      background-color: #388E3C;
+    }
+
+    /* Mobile responsiveness */
+    @media (max-width: 600px) {
+      .container {
+        padding: 25px;
+      }
+
+      h1 {
+        font-size: 26px;
+      }
+
+      .star {
+        font-size: 40px;
+      }
+
+      .button {
+        font-size: 16px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h1>PR Hair & Makeup Studio</h1>
+    <p style="font-size: 18px; color: #d1c1b4;">Please rate your experience with us by selecting stars:</p>
+    
+    <!-- Star Rating System -->
+    <div class="star-rating" id="starRating">
+      <span class="star" data-value="1">&#9733;</span>
+      <span class="star" data-value="2">&#9733;</span>
+      <span class="star" data-value="3">&#9733;</span>
+      <span class="star" data-value="4">&#9733;</span>
+      <span class="star" data-value="5">&#9733;</span>
+    </div>
+    
+    <p id="responseMessage" class="response-message">Thank you for your review!</p>
+    
+    <button class="button" id="submitBtn">Submit Review</button>
+  </div>
+
+  <script>
+    let selectedRating = 0;
+  
+    // Handle star click event
+    document.querySelectorAll('.star').forEach(star => {
+      star.addEventListener('click', function() {
+        selectedRating = parseInt(star.getAttribute('data-value'));
+        updateStars(selectedRating);
+  
+        // Automatically redirect immediately when 5 stars are selected
+        if (selectedRating === 5) {
+          window.location.href = 'https://g.page/r/CSEDTwJF5uMuEBM/review'; // Redirect to the review page
+        }
+      });
+    });
+  
+    // Update star colors based on selected rating
+    function updateStars(rating) {
+      const stars = document.querySelectorAll('.star');
+      stars.forEach(star => {
+        const starValue = parseInt(star.getAttribute('data-value'));
+        if (starValue <= rating) {
+          star.classList.add('selected');
+        } else {
+          star.classList.remove('selected');
+        }
+      });
+  
+      // Display message for non-5-star ratings
+      const responseMessage = document.getElementById('responseMessage');
+      if (rating < 5) {
+        responseMessage.style.display = 'block';
+        responseMessage.textContent = 'Thank you for your review!';
+      } else {
+        responseMessage.style.display = 'none';
+      }
+    }
+  </script>
+  
+
+</body>
+</html>
