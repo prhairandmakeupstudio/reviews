@@ -14,19 +14,23 @@
 
     body {
       font-family: 'Lora', serif;
-      background: linear-gradient(135deg, #2c1b30, #140d21); /* Deep purple to black gradient */
-      color: #f4f4f4;
+      background: linear-gradient(45deg, #2e7d32, #fbc02d); /* Green to Yellow gradient */
+      color: #ffffff;
       display: flex;
       justify-content: center;
       align-items: center;
       height: 100vh;
+      padding: 20px;
+      overflow: hidden; /* Prevent scrollbars from appearing on small screens */
     }
 
+    /* Container Design */
     .container {
-      background: #1f0a2a; /* Dark purple */
+      background: linear-gradient(135deg, #f1f8e9, #ffffff); /* Soft light gradient background */
       padding: 40px;
-      border-radius: 15px;
-      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+      border-radius: 20px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1), 0 4px 15px rgba(0, 0, 0, 0.05); /* Soft shadow effect */
+      border: 2px solid #8bc34a; /* Soft green border */
       max-width: 450px;
       width: 100%;
       text-align: center;
@@ -34,40 +38,47 @@
     }
 
     h1 {
-      color: #D4AF37; /* Golden color */
-      font-size: 32px;
+      color: #2e7d32; /* Green color */
+      font-size: 28px;
       margin-bottom: 20px;
-      letter-spacing: 2px;
+      letter-spacing: 1px;
       font-weight: bold;
       text-transform: uppercase;
     }
 
+    p {
+      font-size: 16px;
+      color: #616161; /* Light gray for description text */
+      margin-bottom: 20px;
+    }
+
+    /* Updated Star Rating with bigger stars */
     .star-rating {
       display: flex;
       justify-content: center;
-      gap: 15px;
+      gap: 12px;
       margin-bottom: 25px;
     }
 
     .star {
-      font-size: 50px;
-      color: #6c4f99; /* Purple */
+      font-size: 70px; /* Increase size for bigger stars */
+      color: #bdbdbd; /* Light gray for unselected stars */
       cursor: pointer;
       transition: color 0.3s ease;
     }
 
     .star.selected {
-      color: #D4AF37; /* Golden color for selected stars */
+      color: #fbc02d; /* Yellow for selected stars */
     }
 
     .button {
-      padding: 12px 25px;
-      background-color: #D4AF37; /* Gold */
-      color: #1f0a2a;
+      padding: 12px 20px;
+      background-color: #2e7d32; /* Green button */
+      color: #ffffff;
       border: none;
       border-radius: 30px;
       cursor: pointer;
-      font-size: 18px;
+      font-size: 16px;
       margin-top: 20px;
       text-transform: uppercase;
       font-weight: bold;
@@ -75,13 +86,13 @@
     }
 
     .button:hover {
-      background-color: #b89228; /* Darker gold for hover */
+      background-color: #1b5e20; /* Darker green for hover */
     }
 
     .response-message {
       margin-top: 20px;
-      font-size: 16px;
-      color: #4CAF50; /* Green message text */
+      font-size: 14px;
+      color: #8bc34a; /* Soft green for success message */
       font-style: italic;
       display: none;
     }
@@ -89,7 +100,7 @@
     .link {
       text-decoration: none;
       color: #ffffff;
-      background-color: #4CAF50;
+      background-color: #8bc34a; /* Soft green link */
       padding: 12px;
       border-radius: 5px;
       font-weight: 500;
@@ -99,7 +110,7 @@
     }
 
     .link:hover {
-      background-color: #388E3C;
+      background-color: #7bbf3b; /* Darker green for hover */
     }
 
     /* Mobile responsiveness */
@@ -109,15 +120,59 @@
       }
 
       h1 {
-        font-size: 26px;
+        font-size: 24px;
+        margin-bottom: 15px;
+      }
+
+      p {
+        font-size: 14px;
+      }
+
+      .star-rating {
+        gap: 8px;
       }
 
       .star {
-        font-size: 40px;
+        font-size: 60px; /* Slightly smaller stars on mobile */
       }
 
       .button {
-        font-size: 16px;
+        padding: 12px 15px;
+        font-size: 14px;
+      }
+
+      .link {
+        font-size: 14px;
+        padding: 10px 15px;
+      }
+    }
+
+    /* Additional styles for smaller screens */
+    @media (max-width: 400px) {
+      body {
+        padding: 10px;
+      }
+
+      .container {
+        padding: 15px;
+      }
+
+      h1 {
+        font-size: 22px;
+      }
+
+      .star {
+        font-size: 50px; /* Further reduce star size on very small screens */
+      }
+
+      .button {
+        padding: 12px 10px;
+        font-size: 14px;
+      }
+
+      .link {
+        padding: 8px 12px;
+        font-size: 12px;
       }
     }
   </style>
@@ -126,7 +181,7 @@
 
   <div class="container">
     <h1>PR Hair & Makeup Studio</h1>
-    <p style="font-size: 18px; color: #d1c1b4;">Please rate your experience with us by selecting stars:</p>
+    <p>Please rate your experience with us by selecting stars:</p>
     
     <!-- Star Rating System -->
     <div class="star-rating" id="starRating">
@@ -180,7 +235,6 @@
       }
     }
   </script>
-  
 
 </body>
 </html>
